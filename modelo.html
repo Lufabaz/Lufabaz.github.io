@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cáldulo de Horas Extras</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Cálculadora de Horas Extras</h1>
+    </header>
+
+    <section>
+        <div>
+            <p><strong>Insira o salário bruto mensal:</strong><br></p>
+            <p>Salário: <input type="number" id="salmen"> <input type="button" value="Adicionar" onclick="insertdata()"></p>
+
+            <p><strong>Insira a carga horária semanal (40 ou 44):</strong><br></p>
+            <p>Carga: <input type="number" id="horasemana"> <input type="button" value="Adicionar" onclick="insertdata()"></p>
+
+            <p><strong>Insira as horas extras por dia:</strong><br></p>
+            <p> Normal:     <input type="number" id="salnor"> <input type="button" value="Adicionar" onclick="insertdata()"><br>
+                Sábado:     <input type="number" id="salsab"> <input type="button" value="Adicionar" onclick="insertdata()"><br>
+                Domingo:    <input type="number" id="saldom"> <input type="button" value="Adicionar" onclick="insertdata()"><br>
+                Feriado:    <input type="number" id="salfer"> <input type="button" value="Adicionar" onclick="insertdata()"><br>
+                Madrugada:  <input type="number" id="salmad"> <input type="button" value="Adicionar" onclick="insertdata()"></p>
+        </div>
+
+        <div>
+            <p id="entradas"><strong>Dados digitados:</strong><br><br></p>
+            <input type="button" value="Calcular" onclick="calculate()">    
+        </div>
+        
+        <div>
+            <p id="resultado"><strong>Resultados:</strong><br><br></p>
+            <input type="button" value="Limpar" onclick="finalizar()"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Bazante's Programing</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
