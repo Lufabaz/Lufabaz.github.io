@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Analisador de Números</title>
+    <link rel="stylesheet" href="estilo_16ex.css">
+</head>
+<body>
+    <header>
+        <h1>Analisador de Números</h1>
+    </header>
+
+    <section>
+        <div>
+            <p>Insira números entre 1 e 100:<br>
+            <input type="number" id="num" step="1" min="1" max="100">
+            <input type="button" value="Adicionar" onclick="add()"></p>
+        </div>
+
+        <div>
+            <textarea id="res" rows="8" cols="49"></textarea> <br>
+            <input type="button" value="Analisar" onclick="analisar()">
+        </div>
+
+        <div>
+            <p><textarea id="result" rows="8" cols="49"></textarea> <br>
+            <input type="button" value="Limpar" onclick="finalizar()"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Bazante's Programing</p>
+    </footer>
+
+    <script src="script_16ex.js"></script>
+</body>
+</html>
