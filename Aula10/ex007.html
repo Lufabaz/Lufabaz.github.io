@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">                     <!-- Idioma da página para o navegador -->
+<head>
+    <meta charset="UTF-8">              <!-- Tipo de arquivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Somando números</title>      <!-- Título da página no navegador -->
+    
+    <style>                             /* Estilo da formatação em CSS */
+        body {                          /* Estilo do Body do HTML */
+            font: normal 18pt Arial;
+        }
+        input {                         /* Estilo dos campos input */
+            font: normal 18pt Arial;
+            width: 100px;
+        }
+        div#res {                       /* Estilo especifico para uma DIV */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Somando Valores</h1>            <!-- Título escrito na página -->
+    <input type="number" name="txtn1" id="txtn1"> + <!-- Campo de input para número -->
+    <input type="number" name="txtn2" id="txtn2">   <!-- Segundo campo de input para número -->
+    <input type="button" value="Somar" onclick="somar()"> <!-- Botão com nome somar que chama a função somar na ação de clique -->
+    <div id="res">Resultado</div> <!-- DIV de resultado -->
+
+    <script>
+        function somar() { // Função somar chamada pelo botão somar no input
+            
+            // Variáveis que receberão os inputs
+            var tn1 = window.document.getElementById('txtn1')
+            var tn2 = window.document.querySelector('input#txtn2')
+
+            // Variável de resultado
+            var res = window.document.getElementById('res')
+
+            // Conversão dos dados string em number transferindo-os para as variáveis abaixo
+            var n1 = Number(tn1.value)
+            var n2 = Number(tn2.value)
+
+            // Criação da variável s recebendo a soma das variáveis n1 e n2 que foram convertidas
+            var s = n1 + n2
+
+            // Exibe na variável res a variável s com a soma de n1 e n2
+            res.innerHTML = `A soma entre ${n1} + ${n2} é igual a <strong>${s}</strong>`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Verificação de Migração</title>
+
+    <style> /* CSS3 */
+    body {
+        background-color: aquamarine;
+        color:black;
+        font: normal 15pt Arial;
+    }
+    </style>
+
+</head>
+<body>
+    <h1>Verificação de nacionalidade - Migração</h1>
+    Informe seu país de nascimento: <input type="text" name="pais" id="pais">
+    <input type="button" value="Verificar" onclick="verificar()">
+    <div id="mostra">
+
+    </div>
+
+    <script> // Javascript
+        function verificar() {
+            var pais = window.document.querySelector('input#pais')
+            var mostra = window.document.querySelector('div#mostra')
+            var respais = String(pais.value)
+
+            mostra.innerHTML = `<p>País de nacionalidade: <strong>${respais}</strong></p>`
+            
+            if (respais == 'Brasil') {
+                mostra.innerHTML += `<h2>Validando nacionalidade...</h2>`
+                mostra.innerHTML += `<p>Olá <strong>Brasileiro</strong>, seja bem vindo de volta! =)</p>`
+            } else {
+                mostra.innerHTML += `<h2>Validando nacionalidade...</h2>`
+                mostra.innerHTML += `<p>Olá <strong>Estrangeiro</strong>, seja bem vindo ao Brasil, aproveite a estadia! =)</p>`
+            }
+        }
+
+    </script>
+
+</body>
+</html>

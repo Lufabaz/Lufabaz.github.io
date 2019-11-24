@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Primeiros passos com DOMM</title>
+    <style>
+        body{
+            background: aquamarine;
+            color:rgb(207, 55, 55);
+            font:normal 14pt Arial;
+        }
+        </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Parágrafo de Resultados</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em Javascript.</p>
+    <div id='msg'>Clique aqui</div>
+
+    <script>
+        var corpo = window.document.body
+        var p1 = window.document.getElementsByTagName('p')[1]
+        window.document.write(p1.innerHTML)
+        /*corpo.style.color = 'black'
+        var d = window.document.getElementById('msg')
+        d.style.background = 'blue'
+        */
+        var d = window.document.querySelector('div#msg')
+        d.style.background = ('black')
+
+    </script>
+</body>
+</html>
