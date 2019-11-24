@@ -1,17 +1,20 @@
 var agora = new Date()
-var diaSem = agora.getDay()
+var hora = agora.getHours()
+var minutos = agora.getMinutes()
+// var mostra = console.log(`Agora são exatamente ${hora} hora(s) e ${minutos} minuto(s)`)
 
-switch(diaSem) {
-    case 0:
-        console.log('Domingo')
-        break
-    case 1:
-        console.log('Segunda')
-        break
-    case 2:
-        console.log('Terça')
-        break
-    default:
-        console.log('Erro: Dia inválido')
-        break
-}
+if (hora < 6) {
+    var mostra = console.log(`Agora são exatamente ${hora} hora(s) e ${minutos} minuto(s)`)
+    console.log('Boa madrugada!')
+} else if (hora < 12) {
+    var mostra = console.log(`Agora são exatamente ${hora} hora(s) e ${minutos} minuto(s)`)
+    console.log('Bom dia!')
+} else if (hora <= 18) {
+        var mostra = console.log(`Agora são exatamente ${hora} hora(s) e ${minutos} minuto(s)`)
+        console.log('Boa tarde')
+    } else if (hora <= 23) {
+        var mostra = console.log(`Agora são exatamente ${hora} hora(s) e ${minutos} minuto(s)`)
+        console.log('Boa noite!')
+    } else {
+        console.log('O horário informado é inválido')
+    }
