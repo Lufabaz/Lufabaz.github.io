@@ -1,24 +1,10 @@
-//Javascript puro exibindo em NodeJS
-
-let num = 15.5
-let compareInt = Number.isInteger(num)
-
-if (compareInt==true) {
-    console.log(`O número ${num} é inteiro.`)
-} else {
-    console.log(`O valor ${num} não é inteiro.`)
-}
-
-
-
-
 // HTML + Javascript
 
-function verify() {
-    let numero = window.document.getElementById('numint')
-    let result = window.document.getElementById('resdob')
+function convert() {
+    let metros = window.document.getElementById('medidaMt')
+    let result = window.document.getElementById('resultCm')
 
-    let compareInt = Number.isInteger(Number(numero.value))
+    let convertToCm = Number(numero.value)
 
     if (compareInt==true) {
         result.innerHTML+=(`O número digitado é ${numero.value} e o dobro de seu valor é ${numero.value*2}.<br>`)
