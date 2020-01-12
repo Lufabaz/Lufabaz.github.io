@@ -22,10 +22,9 @@ function convert() {
     } else if (origCms == true && destMts == true) {
         let convertToMt = medHtml.value/100
         resultHtml.innerHTML += `O valor ${medHtml.value} em Centímetros corresponde a ${convertToMt} em Metros <br>`
-} else {
-    resultHtml.innerHTML += `<br>A medida de origem e destino são iguais. Por favor realizar nova conversão.<br><br>`
-}
-
+    } else {
+        resultHtml.innerHTML += `<br>A medida de origem e destino são iguais. Por favor realizar nova conversão.<br><br>`
+    }
 }
 
 // Limpa o formulário executando um reload na página web após clique do usuário
