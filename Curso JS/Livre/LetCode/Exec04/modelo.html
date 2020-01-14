@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exec 4 - Insira múltiplos números para cálculo de média - Let Code</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Insira múltiplos números para cálculo de média</h1>
+    </header>
+
+    <section>
+        <div>
+            <p>Insira múltiplos números para cálculo de média:<br>
+            <input type="number" id="numeros" step="1" min="1" max="100">
+            <input type="button" value="Adicionar" onclick="adicionar()"></p>
+        </div>
+
+        <div>
+            <textarea id="armazenar" rows="8" cols="49"></textarea> <br>
+            <input type="button" value="Média" onclick="analisar()">
+        </div>
+
+        <div>
+            <p><textarea id="exibir" rows="8" cols="49"></textarea> <br>
+            <input type="button" value="Limpar" onclick="finalizar()"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Bazante's Programing</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
