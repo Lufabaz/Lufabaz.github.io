@@ -16,6 +16,9 @@ function add() {
         let pos = numarray.length-1
         res.innerHTML += `Valor ${numarray[pos]}\n`
     }   
+
+    num.value = ''
+    num.focus()
 }
 
 // Analisará o Array acima com n valores [20, 30, 40]

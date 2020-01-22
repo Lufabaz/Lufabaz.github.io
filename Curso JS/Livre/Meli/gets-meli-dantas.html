@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Pesquisa e exclusão de votos por artigo</title>
+<head>
+   <style>
+      h2 {
+      font-size: 22px;
+      font-family: sans-serif;
+      }
+      img {
+      float: left;
+      }
+      h3 {
+      font-size: 28px;
+      font-family: 'Lato', sans-serif;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      height: 40px;
+      color: #000080;
+      width: 100%;
+      }
+      input[type=text] {
+      width: 25%;
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      border-radius: 4px;
+      font-size: 20px;
+      font-family: sans-serif;
+      background-color: white;
+      background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-32.png');
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      padding: 12px 20px 12px 40px;
+      -webkit-transition: width 0.4s ease-in-out;
+      transition: width 0.4s ease-in-out;
+      font-family: 'Lato', sans-serif;
+      color: #808080;
+      margin: 6px 2px;
+      }
+      input[type=text]:focus {
+      width: 25%;
+      }
+      .button {background-color: #4682B4;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-family: 'Lato', sans-serif;
+      font-weight: bold;
+      }
+      .buttonDelete{
+      background-color: #C0C0C0;
+      } /* Blue */
+      table {
+      border-collapse: collapse;
+      width: 100%;
+      }
+      th, td {
+      padding: 3px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      }
+      th{
+      background-color: #4682B4;
+      color: white;
+      }
+      tr:nth-child(even){
+      background-color: #f2f2f2;
+      }
+   </style>
+</head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+   // using jQuery & 'beforeSend' callback
+    function getCategoryAttributes() {
+   	var category = document.getElementById("category").value;
+   var attributesRequired = [];
+   	var xhr = new XMLHttpRequest();
+   
+   	xhr.open("GET", "https://api.mercadolibre.com/categories/"+ category +"/attributes", true);
+      	xhr.withCredentials = false;
+     	xhr.onload = function () {
+   
+   var obj = jQuery.parseJSON(xhr.responseText);
+   var items = [];
+   		
+   items = obj;		
+   							
+   $.each(items, function (index) {
+		if(items[index].tags.required == true)
+		attributesRequired.push(items[index]);
+   	
+   	//document.getElementById("message").textContent = jsonVotes;
+   });
+   		
+   console.log(attributesRequired);
+   		    		
+   		if(attributesRequired.count != 0){
+   			buildHtmlTable(attributesRequired);
+   		}else{
+   			document.getElementById("message").textContent="Categoria não encontrada ou não possui atributos obrigatórios!";
+   		}
+   };
+   xhr.send();
+   }
+   // Builds the HTML Table out of myList json data from Ivy restful service.
+    function buildHtmlTable(myList) {
+        var columns = addAllColumnHeaders(myList);
+    
+        for (var i = 0 ; i < myList.length ; i++) {
+            var row$ = $('<tr/>');
+            for (var colIndex = 0 ; colIndex < columns.length ; colIndex++) {
+                var cellValue = myList[i][columns[colIndex]];
+    
+                if (cellValue == null) { cellValue = ""; }
+    
+                row$.append($('<td/>').html(cellValue));
+            }
+            $("#excelDataTable").append(row$);
+        }
+    }
+    
+    // Adds a header row to the table and returns the set of columns.
+    // Need to do union of keys from all records as some records may not contain
+    // all records
+    function addAllColumnHeaders(myList){
+        var columnSet = [];
+        var headerTr$ = $('<tr/>');
+    
+        for (var i = 0 ; i < myList.length ; i++) {
+            var rowHash = myList[i];
+            for (var key in rowHash) {
+                if ($.inArray(key, columnSet) == -1){
+                    columnSet.push(key);
+                    headerTr$.append($('<th/>').html(key));
+                }
+            }
+        }
+        $("#excelDataTable").append(headerTr$);
+    
+        return columnSet;
+    }
+    
+   
+   
+</script>
+<body>
+   <table id="cabecalho" border="0" bgcolor="#FFE14D" >
+      <tr>
+         <td><img src="https://logodownload.org/wp-content/uploads/2016/08/Mercado-Livre-logo.png" height="60" width="90" alt="Logotipo"> </td>
+         <td>
+            <h3>   Pesquisa atributos obrigatórios por categoria</h3>
+         </td>
+      </tr>
+   </table>
+   <input type="text" id="category" class="input category" placeholder="Categoria.." />
+   <button class="button buttonGetList" id="get" onclick="getCategoryAttributes()"> Pesquisar</button>
+   <table id="excelDataTable" border="1">
+   </table>
+   <span id="message"></span>
+</body>
+</html>
